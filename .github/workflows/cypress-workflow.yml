@@ -23,22 +23,22 @@ jobs:
 
       - name: Install dependencies for the project
         run: npm install
-        working-directory: ./
+        working-directory: frontend
 
       - name: Start the project
         run: npm start &
-        working-directory: ./
+        working-directory: frontend
 
       - name: Wait for the project to be ready
         run: sleep 30
 
       - name: Install Cypress
         run: npm install cypress
-        working-directory: ./
+        working-directory: cypress
 
       - name: Run Cypress tests
         run: npx cypress run
-        working-directory: ./
+        working-directory: cypress
 
       - name: Upload Cypress videos
         if: always()
