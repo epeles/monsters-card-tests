@@ -38,6 +38,25 @@ Alternatively, to run the tests in headless mode, use the following command:
 npx cypress run
 ```
 
+## CI/CD Pipeline
+
+This project uses GitHub Actions for continuous integration, running tests on multiple browsers:
+
+- Runs on Ubuntu 24.04
+- Tests execute in parallel on:
+  - Google Chrome
+  - Firefox
+- Uses Node.js version 22.x
+- Automatically triggered on:
+  - Push to main branch
+  - Pull requests to main branch
+
+### Pipeline Features
+- Parallel execution across browsers
+- Automatic retry on flaky tests
+- Test artifacts storage
+- Cross-browser verification
+
 ## Writing Tests
 
 To write a new test, create a new file in the `cypress/integration/` folder with a `.spec.js` extension. Use the Cypress API to write your test cases.
