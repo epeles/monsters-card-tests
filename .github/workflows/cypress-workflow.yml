@@ -34,11 +34,11 @@ jobs:
 
       - name: Install Cypress
         run: npm install cypress
-        working-directory: cypress
+        working-directory: ./
 
       - name: Run Cypress tests
         run: npx cypress run
-        working-directory: cypress
+        working-directory: ./
 
       - name: Upload Cypress videos
         if: always()
