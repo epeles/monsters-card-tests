@@ -22,7 +22,12 @@ class MonsterPage extends BasePage {
         speedInput: 'input[name="speed"]',                   // Input field for speed
         alertMessage: '[data-testid="alert-required-fields"]', // Alert for required fields
         monsterImage: '[data-testid="monster-image"]',         // Monster image element
-        favoriteButton: '[data-testid="favorite-btn"]'         // Favorite button element
+        favoriteButton: '[data-testid="favorite-btn"]',         // Favorite button element
+        monsterCardName : '[data-testid="card-monster-name"]',
+        monsterCardHp : '[data-testid="card-monster-hp"]',
+        monsterCardAttack : '[data-testid="card-monster-attack"]',
+        monsterCardDefense : '[data-testid="card-monster-defense"]',
+        monsterCardSpeed : '[data-testid="card-monster-speed"]'
     };
 
     // Navigate to monster page
@@ -77,27 +82,27 @@ class MonsterPage extends BasePage {
     // Verify monster details
     verifyMonster(monster, index) {
         // Verify monster name
-        cy.get('[data-testid="card-monster-name"]')
+        cy.get(this.selectors.monsterCardName)
             .eq(index)
             .should('have.text', monster.name);
     
         // Verify HP value
-        cy.get('[data-testid="card-monster-hp"]')
+        cy.get(this.selectors.monsterCardHp)
             .eq(index)
             .should('have.attr', 'aria-valuenow', monster.hp);
     
         // Verify attack value
-        cy.get('[data-testid="card-monster-attack"]')
+        cy.get(this.selectors.monsterCardAttack)
             .eq(index)
             .should('have.attr', 'aria-valuenow', monster.attack);
     
         // Verify defense value
-        cy.get('[data-testid="card-monster-defense"]')
+        cy.get(this.selectors.monsterCardDefense)
             .eq(index)
             .should('have.attr', 'aria-valuenow', monster.defense);
     
         // Verify speed value
-        cy.get('[data-testid="card-monster-speed"]')
+        cy.get(this.selectors.monsterCardSpeed)
             .eq(index)
             .should('have.attr', 'aria-valuenow', monster.speed);
     
